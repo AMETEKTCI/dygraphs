@@ -58,12 +58,12 @@
     "watchify": "^3.4.0"
   },
   "scripts": {
-    "build": "./scripts/build.sh",
-    "coverage": "./scripts/generate-coverage.sh",
-    "watch": "./scripts/watch.sh",
-    "build-tests": "./scripts/build-tests.sh",
-    "test": "./scripts/run-tests.sh",
-    "tests-ok": "./scripts/check-no-only.sh"
+    "build": "bash ./scripts/build.sh",
+    "coverage": "bash ./scripts/generate-coverage.sh",
+    "watch": "bash ./scripts/watch.sh",
+    "build-tests": "bash ./scripts/build-tests.sh",
+    "test": "bash ./scripts/run-tests.sh",
+    "tests-ok": "bash ./scripts/check-no-only.sh"
   },
   "pre-commit": [
     "tests-ok"
