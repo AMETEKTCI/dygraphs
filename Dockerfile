@@ -10,19 +10,18 @@ ARG AUTHTOKEN
 RUN echo "@ametektci:registry=$PUBLISH_FEED\n//npm.pkg.github.com/:_authToken=$AuthToken\n" > ./.npmrc
 
 # copy react files
-COPY src/ ./src
-COPY package.json ./
-COPY package-lock.json ./
-COPY jest.config.ts ./
-COPY tsconfig.json ./tsconfig.json
+COPY ./ ./
 
 # install npm dependencies
-RUN npm install
+RUN npm install --ignore-scripts
 
 # update the package version
 RUN if [ "$PRERELEASE" = "TRUE" ]; then npm version "$VERSION" --preid=dev --no-git-tag-version; else npm version "$VERSION" --no-git-tag-version; fi;
 
-RUN npm run prepublishOnly
+RUN chmod +x ./scripts/*
+RUN ls;
+
+RUN npm run build
 #Requires type: Module, which breaks the json import.
 #RUN npm run test
 # publish to the package feed
