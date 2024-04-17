@@ -67,6 +67,7 @@ import LegendPlugin from './plugins/legend';
 import RangeSelectorPlugin from './plugins/range-selector';
 
 import GVizChart from './dygraph-gviz';
+import {pickDateTickGranularity} from "./dygraph-tickers";
 
 "use strict";
 
@@ -3469,5 +3470,6 @@ Dygraph.dateTicker = DygraphTickers.dateTicker;
 Dygraph.Granularity = DygraphTickers.Granularity;
 Dygraph.getDateAxis = DygraphTickers.getDateAxis;
 Dygraph.floatFormat = utils.floatFormat;
+Dygraph.pickDateTickGranularity = DygraphTickers.pickDateTickGranularity;
 
 export default Dygraph;
