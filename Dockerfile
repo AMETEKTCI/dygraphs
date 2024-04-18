@@ -5,7 +5,8 @@ ARG VERSION
 ARG PUBLISH_FEED
 ARG PRERELEASE=FALSE
 ARG AUTHTOKEN
-
+RUN apt update
+RUN apt install default-jre default-jdk -y
 # build .npmrc
 RUN echo "@ametektci:registry=$PUBLISH_FEED\n//npm.pkg.github.com/:_authToken=$AuthToken\n" > ./.npmrc
 
